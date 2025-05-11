@@ -1,10 +1,11 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -13,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 221 83% 11%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -33,22 +34,6 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
@@ -79,14 +64,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -96,6 +73,46 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter transition-colors duration-300;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-bold;
+  }
+
+  .section {
+    @apply py-20 px-4 md:px-10 max-w-7xl mx-auto;
+  }
+
+  .section-heading {
+    @apply font-bold text-3xl md:text-4xl mb-10 relative inline-block;
+  }
+  
+  .section-heading::after {
+    @apply content-[''] absolute w-1/2 h-1 bg-highlight left-0 -bottom-2;
+  }
+
+  .main-btn {
+    @apply bg-navy text-highlight border-2 border-highlight py-3 px-6 rounded-lg font-medium 
+    transition-all duration-300 hover:bg-highlight hover:text-navy dark:hover:text-navy inline-block;
+  }
+  
+  /* Reveal animations */
+  .reveal {
+    @apply opacity-0;
+  }
+  
+  .reveal.active {
+    @apply animate-fade-in-up;
+  }
+
+  /* Project card */
+  .project-card {
+    @apply rounded-lg bg-white dark:bg-navy-light overflow-hidden transition-transform duration-300 hover:-translate-y-2 shadow-md hover:shadow-xl;
+  }
+
+  .contact-input {
+    @apply bg-slate-100 dark:bg-navy-light border-0 rounded-lg focus:ring-2 focus:ring-highlight focus:border-transparent block w-full p-3;
   }
 }
